@@ -1,2 +1,2 @@
 # GPT-anki-helper
-A simple GUI to implement the usage of GPT 3 with Anki in a fast way.
+GPT Anki Helper is a user-friendly desktop application that streamlines the process of creating Anki flashcards using the power of GPT-3. With a simple and intuitive interface, users can quickly extract question and answer pairs from any text and save them as flashcards in Anki. This tool is designed to enhance the efficiency of memorization and learning for students and professionals alike improving the time it takes to build an actual deck
