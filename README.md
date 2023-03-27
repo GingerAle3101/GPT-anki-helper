@@ -2,7 +2,8 @@
 
 ## Getting Started
 
-Curruently the desktop app works only on windows. Future releases will support MacOS.
+The app generates questions and answers pairs, and saves them exclusively, that means that any text that is not marked with Q: and A: at the begininng wont be saved to the the deck
+Currently the desktop app works only on windows. Future releases will support MacOS.
 
 ### Installing
 
