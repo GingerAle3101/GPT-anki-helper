@@ -1,8 +1,5 @@
 # GPT-anki-helper
 
-One Paragraph of the project description
-
-
 ## Getting Started
 
 Curruently the desktop app works only on windows.
