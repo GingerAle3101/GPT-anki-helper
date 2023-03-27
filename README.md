@@ -15,17 +15,16 @@ Then you just, use the app!
 
 ### Usage
 
-First you enter your OpenAi API key, you can find it inside your [OpenAi platform homepage](https://platform.openai.com/), you create your account and then look for "view API keys" inside your profile menu (right upper corner)
-
-You choose a text, you copy it inside the first text box
+First you enter your OpenAi API key, you can find it inside your [OpenAi platform homepage](https://platform.openai.com/), you create your account and then look for "view API keys" inside your profile menu (right upper corner). Once you got your API key you have to set it with the "Enter API key" button shown below:
 
 ![alt text](image.png)
 
-You click the "GPT" button and check the response
+You choose a text, you copy it inside the first text box like above.
+You click the "GPT" button and check the response->
 
-![alt text](isolated.png)
+![alt text](Captura.png)
 
-If the response is good, then you click "add" to add it to your deck, and once you have all your responses added, you click "generate" 
+If the response is good, then you click "add" to add it to your deck, and once you have **all** your pairs added, you click "generate" 
 
     DO NOT REMOVE THE Q: AND A: MARKERS 
     OTHERWISE THE PROGRAM WONT SAVE THE TEXT 
