@@ -19,7 +19,7 @@ First you enter your OpenAi API key, you can find it inside your [OpenAi platfor
 
 You choose a text, you copy it inside the first text box
 
-![alt text](isolated.png)
+![alt text](image.png)
 
 You click the "GPT" button and check the response
 
