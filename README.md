@@ -22,7 +22,7 @@ First you enter your OpenAi API key, you can find it inside your [OpenAi platfor
 You choose a text, you copy it inside the first text box like above.
 You click the "GPT" button and check the response->
 
-![alt text](Captura.png)
+![alt text](Captura.PNG)
 
 If the response is good, then you click "add" to add it to your deck, and once you have **all** your pairs added, you click "generate" 
 
