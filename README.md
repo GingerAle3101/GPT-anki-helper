@@ -2,13 +2,13 @@
 
 ## Getting Started
 
-Curruently the desktop app works only on windows.
+Curruently the desktop app works only on windows. Future releases will support MacOS.
 
 ### Installing
 
 You need to go to the "[realeases](https://github.com/GingerAle3101/GPT-anki-helper/releases)" page, then you click on the link called *GPT_Anki_Helper.zip*
 
-Once you have downloaded it you can extract the .exe file or just open it directly inside the .zip file
+Once you have downloaded it you *need* to extract the .exe file, better to do it inside another separate folder since the program will create some other files inside the same directory it is opened.
 
 
 Then you just, use the app!
