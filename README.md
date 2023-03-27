@@ -24,7 +24,7 @@ You click the "GPT" button and check the response->
 
 ![alt text](Captura.PNG)
 
-If the response is good, then you click "add" to add it to your deck, and once you have **all** your pairs added, you click "generate" 
+If the response is good, then you click "add" to add it to your deck, and once you have *all* your pairs added, you click "generate" 
 
     DO NOT REMOVE THE Q: AND A: MARKERS 
     OTHERWISE THE PROGRAM WONT SAVE THE TEXT 
