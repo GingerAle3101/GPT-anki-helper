@@ -12,7 +12,7 @@ def API_caller(prompt):
         openai.api_key = os.getenv("OPENAI_API_KEY")
         response = openai.Completion.create(
         engine="text-davinci-003",
-        prompt=f"[[Use Q and A format]]. Create spanish anki flashcards based on the following text, be extensive: \n" + "'" + prompt + "'\n",
+        prompt=f"[[Use Q and A format]]. Create anki flashcards based on the following text, be extensive: \n" + "'" + prompt + "'\n",
         max_tokens=2000,
         temperature=0.9,
         )
