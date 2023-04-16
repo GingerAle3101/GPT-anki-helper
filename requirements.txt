@@ -1,0 +1,6 @@
+customtkinter==5.1.2
+genanki==0.13.0
+python-dotenv==1.0.0
+openai==0.27.2
+tqdm==4.65.0
+aiohttp==3.8.4
