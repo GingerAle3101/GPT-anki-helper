@@ -26,7 +26,7 @@ jobs:
 
     - name: Compile with PyInstaller
       run: |
-        pyinstaller --onefile --windowed --icon=icon.ico --name=gptAnkiHelper app.py
+        pyinstaller --onefile --windowed --icon=icon.icns --name=gptAnkiHelper app.py
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
