@@ -54,10 +54,11 @@ jobs:
     - name: Create app bundle structure
       run: |
         mkdir -p dist/gptAnkiHelper.app/Contents/MacOS
-        mkdir dist/gptAnkiHelper.app/Contents/Resources
+        mkdir -p dist/gptAnkiHelper.app/Contents/Resources
         cp dist/gptAnkiHelper dist/gptAnkiHelper.app/Contents/MacOS/gptAnkiHelper
         cp icon.icns dist/gptAnkiHelper.app/Contents/Resources/
         cp Info.plist dist/gptAnkiHelper.app/Contents/
+
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
