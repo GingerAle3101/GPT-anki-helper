@@ -24,12 +24,43 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
 
+    - name: Generate Info.plist
+      run: |
+        echo '<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>CFBundleDisplayName</key>
+          <string>gptAnkiHelper</string>
+          <key>CFBundleName</key>
+          <string>gptAnkiHelper</string>
+          <key>CFBundleIdentifier</key>
+          <string>com.GingerAle.gptAnkiHelper</string>
+          <key>CFBundleVersion</key>
+          <string>1.0</string>
+          <key>CFBundleShortVersionString</key>
+          <string>1.0</string>
+          <key>CFBundleIconFile</key>
+          <string>icon.icns</string>
+          <key>NSHumanReadableCopyright</key>
+          <string>Copyright © 2023 GingerAle. All rights reserved.</string>
+        </dict>
+        </plist>' > Info.plist
+
     - name: Compile with PyInstaller
       run: |
-        pyinstaller --onefile --windowed --icon=icon.icns --name=gptAnkiHelper app.py
+        pyinstaller --onefile --windowed --icon=icon.icns --osx-bundle-identifier=com.GingerAle.gptAnkiHelper --name=gptAnkiHelper app.py
+
+    - name: Create app bundle structure
+      run: |
+        mkdir -p dist/gptAnkiHelper.app/Contents/MacOS
+        mkdir dist/gptAnkiHelper.app/Contents/Resources
+        cp dist/gptAnkiHelper dist/gptAnkiHelper.app/Contents/MacOS/gptAnkiHelper
+        cp icon.icns dist/gptAnkiHelper.app/Contents/Resources/
+        cp Info.plist dist/gptAnkiHelper.app/Contents/
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: gptAnkiHelper
-        path: dist/gptAnkiHelper
+        path: dist/gptAnkiHelper.app

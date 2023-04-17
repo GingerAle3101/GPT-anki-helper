@@ -170,7 +170,9 @@ generate_button.pack(pady=10)
 # Run the window
 window.mainloop()
 
+# give the pyinstaller command to create the executable file
 
+# pyinstaller --onefile --icon=icon.ico --add-data="icon.ico --windowed app.py
 
 
 
