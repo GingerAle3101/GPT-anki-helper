@@ -61,7 +61,12 @@ jobs:
     - name: Archive app bundle
       run: |
         cd dist
-        zip -r gptAnkiHelper.zip gptAnkiHelper.app
+        zip -r -y -q gptAnkiHelper.zip gptAnkiHelper.app
+
+    - name: Verify zip file
+      run: |
+        cd dist
+        unzip -t gptAnkiHelper.zip
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2

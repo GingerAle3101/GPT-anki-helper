@@ -7,10 +7,15 @@ import openai
 from tqdm import tqdm
 import random
 
+# Create a directory in the user's home directory for the .env and .apkg files
+base_directory = os.path.join(os.path.expanduser("~"), "flashcard_generator")
+os.makedirs(base_directory, exist_ok=True)
 #define an api caller function
+
 def API_caller(prompt):
     load_dotenv()
     openai.api_key = os.getenv("OPENAI_API_KEY")
+    print("API Key: " + openai.api_key)
     
     messages = [{"role": "user", "content": prompt}]
     messages.insert(0, {"role": "system", "content": "Only answer in Q: and A: format. You are a helpful bot that can only answer in Q: and A: format. Please do not use any other format. Remember the 20 rules of knowledge since the content of your response will be used to memorize knowledge. Generate based on the text below."})
@@ -81,7 +86,7 @@ def generate_deck(Response_list):
             deck.add_note(my_note)
 
         # Generate the deck
-        genanki.Package(deck).write_to_file(deck_name + '.apkg')
+        genanki.Package(deck).write_to_file(os.path.join(base_directory, deck_name + '.apkg'))
 
     window2 = tk.Tk()
     window2.title("Deck Name")
@@ -105,7 +110,7 @@ def open_api_key_file():
         # Close the API key input window
         window2.destroy()
         # Open the .env file in write mode
-        with open(".env", "w") as f:
+        with open(os.path.join(base_directory, ".env"), "w") as f:
                 # Write the API key to the .env file
                 f.write("OPENAI_API_KEY=" + api_key)
 
@@ -169,10 +174,3 @@ generate_button.pack(pady=10)
 
 # Run the window
 window.mainloop()
-
-# give the pyinstaller command to create the executable file
-
-# pyinstaller --onefile --icon=icon.ico --add-data="icon.ico --windowed app.py
-
-
-
