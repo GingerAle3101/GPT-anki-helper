@@ -49,19 +49,22 @@ jobs:
 
     - name: Compile with PyInstaller
       run: |
-        pyinstaller --onefile --windowed --icon=icon.icns --osx-bundle-identifier=com.GingerAle.gptAnkiHelper --name=gptAnkiHelper app.py
+        pyinstaller --windowed --icon=icon.icns --osx-bundle-identifier=com.GingerAle.gptAnkiHelper --name=gptAnkiHelper app.py
 
     - name: Create app bundle structure
       run: |
-        mkdir -p dist/gptAnkiHelper.app/Contents/MacOS
-        mkdir -p dist/gptAnkiHelper.app/Contents/Resources
-        cp dist/gptAnkiHelper dist/gptAnkiHelper.app/Contents/MacOS/gptAnkiHelper
+        mv dist/gptAnkiHelper dist/gptAnkiHelper.app
+        mkdir -p dist/gptAnkiHelper.app/Contents/{MacOS,Resources}
         cp icon.icns dist/gptAnkiHelper.app/Contents/Resources/
         cp Info.plist dist/gptAnkiHelper.app/Contents/
 
+    - name: Archive app bundle
+      run: |
+        cd dist
+        zip -r gptAnkiHelper.zip gptAnkiHelper.app
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: gptAnkiHelper
-        path: dist/gptAnkiHelper.app
+        path: dist/gptAnkiHelper.zip
