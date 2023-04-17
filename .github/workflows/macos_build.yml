@@ -49,7 +49,9 @@ jobs:
 
     - name: Compile with PyInstaller
       run: |
-        pyinstaller --windowed --icon=icon.icns --osx-bundle-identifier=com.GingerAle.gptAnkiHelper --name=gptAnkiHelper app.py
+        python -c "import sysconfig; print(sysconfig.get_path('purelib'))" > site_packages_path.txt
+        SITE_PACKAGES_PATH=$(cat site_packages_path.txt)
+        pyinstaller --windowed --icon=icon.icns --osx-bundle-identifier=com.GingerAle.gptAnkiHelper --name=gptAnkiHelper --add-data "$SITE_PACKAGES_PATH/customtkinter:customtkinter" app.py
 
     - name: Create app bundle structure
       run: |
