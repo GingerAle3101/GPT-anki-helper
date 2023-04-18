@@ -8,14 +8,13 @@ from tqdm import tqdm
 import random
 
 # Create a directory in the user's home directory for the .env and .apkg files
-base_directory = os.path.join(os.path.expanduser("~"), "flashcard_generator")
+base_directory = os.path.join(os.path.expanduser("~"), "Desktop", "flashcard_generator")
 os.makedirs(base_directory, exist_ok=True)
 #define an api caller function
 
 def API_caller(prompt):
     load_dotenv()
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    print("API Key: " + openai.api_key)
+    openai.api_key = api_key
     
     messages = [{"role": "user", "content": prompt}]
     messages.insert(0, {"role": "system", "content": "Only answer in Q: and A: format. You are a helpful bot that can only answer in Q: and A: format. Please do not use any other format. Remember the 20 rules of knowledge since the content of your response will be used to memorize knowledge. Generate based on the text below."})
@@ -92,7 +91,7 @@ def generate_deck(Response_list):
     window2.title("Deck Name")
     window2.minsize(300, 100)
     window2.resizable(False, False)
-    window.iconbitmap('icon.ico')  # Add the icon to the window
+    window.iconbitmap('icon.icns')  # Add the icon to the window
     text_box2 = tk.Text(window2, height=1, width=30, font=("Arial", 12), wrap="word")
     text_box2.pack()
     confirm_button = tk.Button(window2, text="Confirm", command=confirm_and_close)
@@ -101,25 +100,22 @@ def generate_deck(Response_list):
 
 # Define a function to open the .env file and write the API key
 def open_api_key_file():
+
+    global api_key
     # Define a function to be called when the "Confirm" button is clicked
     def confirm_and_close():
-        # Access the global variable api_key
         global api_key
         # Get the content of the text box (API key entered by the user)
         api_key = text_box2.get("1.0", "end-1c")
         # Close the API key input window
         window2.destroy()
-        # Open the .env file in write mode
-        with open(os.path.join(base_directory, ".env"), "w") as f:
-                # Write the API key to the .env file
-                f.write("OPENAI_API_KEY=" + api_key)
 
     # Create a new window to input the API key
     window2 = tk.Tk()
     window2.title("API Key")
     window2.minsize(300, 100)
     window2.resizable(False, False)
-    window.iconbitmap('icon.ico')  # Add the icon to the window
+    window.iconbitmap('icon.icns')  # Add the icon to the window
 
     # Create a text box for entering the API key
     text_box2 = tk.Text(window2, height=1, width=30, font=("Arial", 12), wrap="word")
@@ -137,13 +133,14 @@ deck_name = ""
 deck_id = 0
 questions = []
 answers = []
+global api_key 
 
 #initialize the window
 window = tk.Tk()
 window.title("Flashcard Generator")
 window.configure(bg="white")
 window.resizable(True, True)
-window.iconbitmap('icon.ico')  # Add the icon to the window
+window.iconbitmap('icon.icns')  # Add the icon to the window
 
 # Initialize the button to enter the API key
 api_key_button = ctk.CTkButton(window, text="Enter API Key", command=open_api_key_file)
